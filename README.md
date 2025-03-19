@@ -72,12 +72,13 @@ print("\nAFTER DECRYPTION:", decrypted_text)
 
 
 ## OUTPUT:
-OUTPUT:
 Simulating Caesar Cipher
 
 Input : MUTHULAKSHMI
-Encrypted Message : PXWKXODNVKPL Decrypted Message : MUTHULAKSHMI
+Encrypted Message : PXWKXODNVKPL 
+Decrypted Message : MUTHULAKSHMI
 
+![image](https://github.com/user-attachments/assets/ac014035-f555-41ff-a376-c4242a18c148)
 
 
 ## RESULT:
@@ -123,6 +124,8 @@ To decrypt, use the INVERSE (opposite) of the last 3 rules, and the 1st as-is (d
 
 
 ## PROGRAM:
+
+PlayFair Cipher
 ```
 def prepare_text(text):
     text = text.lower().replace(" ", "").replace("j", "i")
@@ -216,8 +219,10 @@ print("\nDecrypted Text:", decrypted_text)
 ```
 
 ## OUTPUT:
-Output:
-Key text: ANITHA Plain text: MUTHULAKSHMI Cipher text: osharongutlt
+
+Key text: ANITHA
+Plain text: MUTHULAKSHMI 
+Cipher text: osharongutlt
 
 ![Screenshot 2025-03-19 092510](https://github.com/user-attachments/assets/c43b20a3-5bab-40e9-aec4-b3cbdccfd159)
 
@@ -229,7 +234,7 @@ The program is executed successfully
 
 ---------------------------
 
-# Hill Cipher
+## Hill Cipher
 Hill Cipher using with different key values
 
 # AIM:
@@ -257,6 +262,7 @@ The cipher can, be adapted to an alphabet with any number of letters. All arithm
 
 ## PROGRAM:
 PROGRAM:
+Hill Cipher
 ```
 import numpy as np
 
@@ -306,9 +312,8 @@ print("Decrypted text:", decrypted_text)
 
 
 ## OUTPUT:
-OUTPUT:
-Simulating Hill Cipher
 
+Simulating Hill Cipher
 
 Input Message : muthulakshmi
 Encrypted Message : TSFGSNMOMNOU 
@@ -349,6 +354,7 @@ The Vigenere cipher is a method of encrypting alphabetic text by using a series 
 
 ## PROGRAM:
 PROGRAM:
+Vigenere Cipher
 ```
 def vigenere_encrypt(text, key):
     text_len = len(text)
@@ -391,7 +397,7 @@ print("\nDecrypted Message:", decrypted_message)
 ```
 
 ## OUTPUT:
-OUTPUT :
+
 Simulating Vigenere Cipher
 
 Key: 3
@@ -433,6 +439,7 @@ In the rail fence cipher, the plaintext is written downwards and diagonally on s
 ## PROGRAM:
 
 PROGRAM:
+Rail Fence Cipher
 ```
 def rail_fence_encrypt(message, rails):
     len_msg = len(message)
@@ -493,7 +500,7 @@ print("\nDecrypted Message:", decrypted_message)
 ```
 
 ## OUTPUT:
-OUTPUT:
+Rail Fence Cipher
 Enter a Secret Message : muthulakshmi
 Enter number of rails 3
 Encrypted Message: musuhlkhitam
