@@ -219,7 +219,8 @@ print("\nDecrypted Text:", decrypted_text)
 Output:
 Key text: ANITHA Plain text: MUTHULAKSHMI Cipher text: osharongutlt
 
-![Screenshot 2025-03-19 092510](https://github.com/user-attachments/assets/68030808-7e34-4d43-bfeb-0786c8ff2b0d)
+![Screenshot 2025-03-19 092510](https://github.com/user-attachments/assets/c43b20a3-5bab-40e9-aec4-b3cbdccfd159)
+
 
    
 ## RESULT:
@@ -312,6 +313,10 @@ Simulating Hill Cipher
 Input Message : muthulakshmi
 Encrypted Message : TSFGSNMOMNOU 
 Decrypted Message : muthulakshmi
+
+![Screenshot 2025-03-19 093547](https://github.com/user-attachments/assets/800e3725-584f-4a72-98ab-45d50ad2f281)
+
+
 ## RESULT:
 The program is executed successfully
 
@@ -393,6 +398,10 @@ Key: 3
 Input Message : muthulakshmi
 Encrypted Message : ygftgxmwetyu
 Decrypted Message : muthulakshmi
+
+![Screenshot 2025-03-19 094202](https://github.com/user-attachments/assets/b46b6bd6-03f0-49a9-b7f7-a64ae6aa5204)
+
+
 ## RESULT:
 The program is executed successfully
 
@@ -424,11 +433,74 @@ In the rail fence cipher, the plaintext is written downwards and diagonally on s
 ## PROGRAM:
 
 PROGRAM:
+```
+def rail_fence_encrypt(message, rails):
+    len_msg = len(message)
+    code = [['\n'] * len_msg for _ in range(rails)]  # Initialize grid with newlines
+    
+    row, direction = 0, 1  # Start at row 0, moving downward
+    for j in range(len_msg):
+        code[row][j] = message[j]
+        row += direction
+        if row == rails - 1 or row == 0:
+            direction *= -1  # Change direction at top or bottom
+
+    encrypted_text = ''.join(code[i][j] for i in range(rails) for j in range(len_msg) if code[i][j] != '\n')
+    return encrypted_text
+
+def rail_fence_decrypt(encrypted_text, rails):
+    len_msg = len(encrypted_text)
+    code = [['\n'] * len_msg for _ in range(rails)]
+    
+    # Mark the zigzag pattern positions
+    row, direction = 0, 1
+    for j in range(len_msg):
+        code[row][j] = '*'
+        row += direction
+        if row == rails - 1 or row == 0:
+            direction *= -1
+
+    # Fill the pattern with the actual encrypted characters
+    index = 0
+    for i in range(rails):
+        for j in range(len_msg):
+            if code[i][j] == '*' and index < len_msg:
+                code[i][j] = encrypted_text[index]
+                index += 1
+
+    # Read the message in a zigzag pattern
+    row, direction = 0, 1
+    decrypted_text = []
+    for j in range(len_msg):
+        decrypted_text.append(code[row][j])
+        row += direction
+        if row == rails - 1 or row == 0:
+            direction *= -1
+
+    return ''.join(decrypted_text)
+
+# Input from user
+message = input("Enter a Secret Message: ")
+rails = int(input("\nEnter number of rails: "))
+
+# Encrypt and Decrypt
+encrypted_message = rail_fence_encrypt(message, rails)
+decrypted_message = rail_fence_decrypt(encrypted_message, rails)
+
+# Output results
+print("\nEncrypted Message:", encrypted_message)
+print("\nDecrypted Message:", decrypted_message)
+```
 
 ## OUTPUT:
 OUTPUT:
-Enter a Secret Message wearediscovered
-Enter number of rails 2
-waeicvrderdsoee
+Enter a Secret Message : muthulakshmi
+Enter number of rails 3
+Encrypted Message: musuhlkhitam
+Decrypted Message: muthulakshmi
+
+![image](https://github.com/user-attachments/assets/a02281ad-b611-4788-a193-148b9143c20c)
+
+
 ## RESULT:
 The program is executed successfully
